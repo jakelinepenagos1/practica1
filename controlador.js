@@ -1,6 +1,7 @@
 
 let boton=document.getElementById("boton");
 
+
 boton.addEventListener("click",capturarDatos);
 
 function capturarDatos(){
@@ -8,7 +9,13 @@ function capturarDatos(){
     seleccionarConsola(consolaElegida);
 
   let cantidad=document.getElementById("cantidad").value;
-  console.log(cantidad);
+
+  let pildora=document.getElementById("pildora");
+  pildora.textContent=cantidad;
+
+  let direccion=document.getElementById("comentario").value;
+  console.log(direccion);
+
 }
 let nombreConsola;
 let precioConsola;
