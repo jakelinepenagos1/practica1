@@ -6,6 +6,9 @@ boton.addEventListener("click",capturarDatos);
 function capturarDatos(){
     let consolaElegida=document.getElementById("productos").value;
     seleccionarConsola(consolaElegida);
+
+  let cantidad=document.getElementById("cantidad").value;
+  console.log(cantidad);
 }
 let nombreConsola;
 let precioConsola;
