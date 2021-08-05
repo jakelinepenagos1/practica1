@@ -1,8 +1,9 @@
-main{
+body{
    
-    text-align: justify;
-    font-size: medium;
+    text-align:center;
+    font-size: small;
     font-style: italic;
+
 }
 
 .imagen{
