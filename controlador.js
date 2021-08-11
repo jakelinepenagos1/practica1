@@ -3,12 +3,19 @@ let precioConsola;
 let pesoConsola;
 let fotoConsola;
 
+//1. Controlar con JS el boton del formulario
 let boton=document.getElementById("boton");
+let botonLimpiar=document.getElementById("botonLimpiar");
 
-boton.addEventListener("click",capturarDatos); 
+//2. Detectar el clic en el boton
+boton.addEventListener("click",capturarDatos);
+botonLimpiar.addEventListener("click",limpiarCarrito);
 
+//3. Crear funcion PROPIA que se llamo en el punto 2
 function capturarDatos(){
 
+    //4. Capturar los valores del formulario
+    // creo tantas variables como valores del formulario
 
     let consolaElegida=document.getElementById("productos").value;
     seleccionarConsola(consolaElegida);
@@ -41,10 +48,16 @@ function capturarDatos(){
     let costoCasillero=document.getElementById("costoCasillero");
     costoCasillero.textContent=`Costo Casillero: $${calcularCostoCasillero(pesoConsola,cantidad)} USD`;
     
+    let costoImpuestos=document.getElementById("costoImpuestos");
+    costoImpuestos.textContent=`Costo venta(impuestos):$${calcularCostoImpuestos(precioConsola,cantidad)}`;
+
+    let costoTotal=document.getElementById("costoTotal");
+    costoTotal.textContent=`Costo Total: $${(calcularCostoCasillero(pesoConsola,cantidad))+(calcularCostoImpuestos(precioConsola,cantidad))} USD`;
 
 
 }
 
+//5. Seleccionar la información de la consola segun la selección del usuario
 function seleccionarConsola(opcion){
 
     let consolas={
@@ -52,7 +65,6 @@ function seleccionarConsola(opcion){
         precios:Array(409,700,750),
         pesos:Array(4.75,13.1,14.2),
         fotos:Array("img/nintendo.jpg","img/xbox.jpg","img/ps5.jpg"),
-        
     }
 
     if(opcion==1){
@@ -104,4 +116,23 @@ function calcularCostoCasillero(pesoConsola,cantidad){
     }
     
     return costoCasillero;
+}
+
+function calcularCostoImpuestos(costoConsola,cantidad){
+
+    const IMPUESTO_PAIS=114;
+    const VALOR_SEGURO=7;
+
+    let costoCompra=costoConsola*cantidad;
+    let costoTotal=costoCompra+IMPUESTO_PAIS+VALOR_SEGURO;
+
+    return costoTotal;
+
+} 
+
+
+function limpiarCarrito(){
+
+    console.log("hiciste clic en limpiar");
+
 }
