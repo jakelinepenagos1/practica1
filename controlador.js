@@ -3,19 +3,14 @@ let precioConsola;
 let pesoConsola;
 let fotoConsola;
 
-//1. Controlar con JS el boton del formulario
 let boton=document.getElementById("boton");
 let botonLimpiar=document.getElementById("botonLimpiar");
 
-//2. Detectar el clic en el boton
 boton.addEventListener("click",capturarDatos);
 botonLimpiar.addEventListener("click",limpiarCarrito);
 
-//3. Crear funcion PROPIA que se llamo en el punto 2
 function capturarDatos(){
 
-    //4. Capturar los valores del formulario
-    // creo tantas variables como valores del formulario
 
     let consolaElegida=document.getElementById("productos").value;
     seleccionarConsola(consolaElegida);
@@ -57,7 +52,6 @@ function capturarDatos(){
 
 }
 
-//5. Seleccionar la información de la consola segun la selección del usuario
 function seleccionarConsola(opcion){
 
     let consolas={
