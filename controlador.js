@@ -1,72 +1,113 @@
+let nombreConsola;
+let precioConsola;
+let pesoConsola;
+let fotoConsola;
 
+//1. Controlar con JS el boton del formulario
 let boton=document.getElementById("boton");
 
+//2. Detectar el clic en el boton
+boton.addEventListener("click",capturarDatos); 
 
-boton.addEventListener("click",capturarDatos);
-
+//3. Crear funcion PROPIA que se llamo en el punto 2
 function capturarDatos(){
+
+    //4. Capturar los valores del formulario
+    // creo tantas variables como valores del formulario
+
     let consolaElegida=document.getElementById("productos").value;
     seleccionarConsola(consolaElegida);
 
+    let cantidad=document.getElementById("cantidad").value;
+    
+    let pildora=document.getElementById("pildora");
+    pildora.textContent=cantidad;
+    pildora.classList.remove("invisible");
+    pildora.classList.add("visible");
+
+    
     let direccion=document.getElementById("comentarios").value;
-  console.log(direccion);
+    
+    let fotoCarrito=document.getElementById("fotoCarrito");
+    fotoCarrito.src=fotoConsola;
 
-  let cantidad=document.getElementById("cantidad").value;
+    let tituloCarrito=document.getElementById("tituloCarrito");
+    tituloCarrito.textContent=nombreConsola;
 
-  let pildora=document.getElementById("pildora");
-  pildora.textContent=cantidad;
-  pildora.classList.remove("invisible");
-  pildora.classList.add("visible");
+    let precioIndividual=document.getElementById("precioUnitarioCarrito");
+    precioIndividual.textContent=`Costo unitario: $${precioConsola} USD`;
 
-  let fotocarrito=document.getElementById("fotocarrito");
-  fotocarrito.src=fotosconsola;
+    let pesoIndividual=document.getElementById("pesoUnitarioCarrito");
+    pesoIndividual.textContent=`Peso unitario: ${pesoConsola} Lb`;
 
-  let titulocarrito=document.getElementById("titulocarrito");
-  titulocarrito.textContent=nombreConsola;
+    let pesoTotal=document.getElementById("pesoTotalCarrito");
+    pesoTotal.textContent=`Peso Total del envio: ${pesoConsola*cantidad}Lb`;
+    
+    let costoCasillero=document.getElementById("costoCasillero");
+    costoCasillero.textContent=`Costo Casillero: $${calcularCostoCasillero(pesoConsola,cantidad)} USD`;
+    
 
-  
 
 }
-let nombreConsola;
-let precioConsola;
-let pesosConsola;
-let fotosconsola
 
+//5. Seleccionar la información de la consola segun la selección del usuario
 function seleccionarConsola(opcion){
 
-    let consola={
-        nombre:Array("nitendo","xbox","playstation"),
-        precio:Array(409,700,750),
-        pesos:Array(4.75,13.1,14.2),
-        fotos:Array("img/nintendo.jpg","img/xbox.jpg","img/Ps5.jpg"),
-       
+    let consolas={
+        nombres:Array("PS5","XBOX Serie X", "Nintendo Switch"),
+        precios:Array(750,700,409),
+        pesos:Array(14.2,13.1,4.75),
+        fotos:Array("https://github.com/jjosegallegocesde/imagenes-amazon/blob/main/img/ps5.jpg?raw=true","https://github.com/jjosegallegocesde/imagenes-amazon/blob/main/img/xbox.jpg?raw=true","https://github.com/jjosegallegocesde/imagenes-amazon/blob/main/img/nintendo.jpg?raw=true"),
+        
     }
-    if(opcion==1){
-        nombreConsola=consola.nombre[0];
-        precioConsola=consola.precio[0];
-        pesosConsola=consola.pesos[0];
-        fotosconsola=consola.fotos[0];
 
+    if(opcion==1){
+
+        nombreConsola=consolas.nombres[0];
+        precioConsola=consolas.precios[0];
+        pesoConsola=consolas.pesos[0];
+        fotoConsola=consolas.fotos[0];
 
     }else if(opcion==2){
-        nombreConsola=consola.nombre[1];
-        precioConsola=consola.precio[1];
-        pesosConsola=consola.pesos[1];
-        fotosconsola=consola.fotos[1];
+
+        nombreConsola=consolas.nombres[1];
+        precioConsola=consolas.precios[1];
+        pesoConsola=consolas.pesos[1];
+        fotoConsola=consolas.fotos[1];
 
     }else if(opcion==3){
-        nombreConsola=consola.nombre[2];
-        precioConsola=consola.precio[2];
-        pesosConsola=consola.pesos[2];
-        fotosconsola=consola.fotos[2];
+
+        nombreConsola=consolas.nombres[2];
+        precioConsola=consolas.precios[2];
+        pesoConsola=consolas.pesos[2];
+        fotoConsola=consolas.fotos[2];
 
     }else{
-
         nombreConsola=null;
         precioConsola=null;
-        pesosConsola=null;
-        fotosconsola=null;
+        pesoConsola=null;
+        fotoConsola=null;
 
     }
 
+
+}
+
+function calcularCostoCasillero(pesoConsola,cantidad){
+
+    let costoCasillero=0;
+    let pesoTotalEnvio=pesoConsola*cantidad;
+
+    if(pesoTotalEnvio<=20){
+
+        costoCasillero=85;
+
+    }else{ 
+
+        let pesoExtra=pesoTotalEnvio-20;
+        costoCasillero=85+(pesoExtra*2);
+
+    }
+    
+    return costoCasillero;
 }
