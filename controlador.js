@@ -3,17 +3,12 @@ let precioConsola;
 let pesoConsola;
 let fotoConsola;
 
-//1. Controlar con JS el boton del formulario
 let boton=document.getElementById("boton");
 
-//2. Detectar el clic en el boton
 boton.addEventListener("click",capturarDatos); 
 
-//3. Crear funcion PROPIA que se llamo en el punto 2
 function capturarDatos(){
 
-    //4. Capturar los valores del formulario
-    // creo tantas variables como valores del formulario
 
     let consolaElegida=document.getElementById("productos").value;
     seleccionarConsola(consolaElegida);
@@ -50,14 +45,13 @@ function capturarDatos(){
 
 }
 
-//5. Seleccionar la información de la consola segun la selección del usuario
 function seleccionarConsola(opcion){
 
     let consolas={
-        nombres:Array("PS5","XBOX Serie X", "Nintendo Switch"),
-        precios:Array(750,700,409),
-        pesos:Array(14.2,13.1,4.75),
-        fotos:Array("https://github.com/jjosegallegocesde/imagenes-amazon/blob/main/img/ps5.jpg?raw=true","https://github.com/jjosegallegocesde/imagenes-amazon/blob/main/img/xbox.jpg?raw=true","https://github.com/jjosegallegocesde/imagenes-amazon/blob/main/img/nintendo.jpg?raw=true"),
+        nombres:Array("Nintendo Switch","XBOX Serie X","PS5" ),
+        precios:Array(409,700,750),
+        pesos:Array(4.75,13.1,14.2),
+        fotos:Array("img/nintendo.jpg","img/xbox.jpg","img/ps5.jpg"),
         
     }
 
