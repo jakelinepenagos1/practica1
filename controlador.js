@@ -2,12 +2,18 @@ let nombreConsola;
 let precioConsola;
 let pesoConsola;
 let fotoConsola;
+let linea=document.getElementById("linea");
+let linea2=document.getElementById("linea2");
 
+ 
 let boton=document.getElementById("boton");
 let botonLimpiar=document.getElementById("botonLimpiar");
 
 boton.addEventListener("click",capturarDatos);
 botonLimpiar.addEventListener("click",limpiarCarrito);
+
+    linea.classList.add("invisible")
+    linea2.classList.add("invisible")
 
 function capturarDatos(){
 
@@ -21,7 +27,6 @@ function capturarDatos(){
     pildora.textContent=cantidad;
     pildora.classList.remove("invisible");
     pildora.classList.add("visible");
-
     
     let direccion=document.getElementById("comentarios").value;
     
@@ -48,14 +53,14 @@ function capturarDatos(){
 
     let costoTotal=document.getElementById("costoTotal");
     costoTotal.textContent=`Costo Total: $${(calcularCostoCasillero(pesoConsola,cantidad))+(calcularCostoImpuestos(precioConsola,cantidad))} USD`;
-
-
+    linea.classList.remove("invisible")
+    linea2.classList.remove("invisible")
 }
 
 function seleccionarConsola(opcion){
 
     let consolas={
-        nombres:Array("Nintendo Switch","XBOX Serie X","PS5" ),
+        nombres:Array("Nintendo Switch","XBOX Serie X","PlayStation5" ),
         precios:Array(409,700,750),
         pesos:Array(4.75,13.1,14.2),
         fotos:Array("img/nintendo.jpg","img/xbox.jpg","img/ps5.jpg"),
@@ -128,5 +133,34 @@ function calcularCostoImpuestos(costoConsola,cantidad){
 function limpiarCarrito(){
 
     console.log("hiciste clic en limpiar");
+
+    let fotoCarrito=document.getElementById("fotoCarrito");
+    fotoCarrito.src="https://github.com/jjosegallegocesde/imagenes-amazon/blob/main/img/fotoCarrito.PNG?raw=tru"
+
+    let tituloCarrito=document.getElementById("tituloCarrito");
+    tituloCarrito.textContent="Tu Carrito de Amazon está vacío";
+
+    let costoCasillero=document.getElementById("costoCasillero");
+    costoCasillero.textContent="";
+
+    let precioIndividual=document.getElementById("precioUnitarioCarrito");
+    precioIndividual.textContent="";
+
+    let pesoTotal=document.getElementById("pesoTotalCarrito");
+    pesoTotal.textContent=""
+
+    let costoImpuestos=document.getElementById("costoImpuestos");
+    costoImpuestos.textContent="";
+
+    let costoTotal=document.getElementById("costoTotal");
+    costoTotal.textContent="";
+
+    let pesoIndividual=document.getElementById("pesoUnitarioCarrito");
+    pesoIndividual.textContent="";
+
+    linea.classList.add("invisible")
+    linea2.classList.add("invisible")
+    pildora.classList.add("invisible");
+    pildora.classList.remove("visible");
 
 }
