@@ -2,18 +2,20 @@ let nombreConsola;
 let precioConsola;
 let pesoConsola;
 let fotoConsola;
+
 let linea=document.getElementById("linea");
 let linea2=document.getElementById("linea2");
-
- 
+let convertidor=document.getElementById("cop");
 let boton=document.getElementById("boton");
 let botonLimpiar=document.getElementById("botonLimpiar");
 
+convertidor.addEventListener("click",convertidorcop)
 boton.addEventListener("click",capturarDatos);
 botonLimpiar.addEventListener("click",limpiarCarrito);
 
-    linea.classList.add("invisible")
-    linea2.classList.add("invisible")
+linea.classList.add("invisible")
+linea2.classList.add("invisible")
+convertidor.classList.add("invisible")
 
 function capturarDatos(){
 
@@ -53,17 +55,19 @@ function capturarDatos(){
 
     let costoTotal=document.getElementById("costoTotal");
     costoTotal.textContent=`Costo Total: $${(calcularCostoCasillero(pesoConsola,cantidad))+(calcularCostoImpuestos(precioConsola,cantidad))} USD`;
+    
     linea.classList.remove("invisible")
     linea2.classList.remove("invisible")
+    convertidor.classList.remove("invisible")
 }
 
 function seleccionarConsola(opcion){
 
     let consolas={
-        nombres:Array("Nintendo Switch","XBOX Serie X","PlayStation5" ),
-        precios:Array(409,700,750),
-        pesos:Array(4.75,13.1,14.2),
-        fotos:Array("img/nintendo.jpg","img/xbox.jpg","img/ps5.jpg"),
+        nombres:Array("Phone 12","Nintendo Switch","XBOX Serie X","PlayStation5" ),
+        precios:Array(699,409,700,750),
+        pesos:Array(162,4.75,13.1,14.2),
+        fotos:Array("img/phone.jpeg","img/nintendo.jpg","img/xbox.jpg","img/ps5.jpg"),
     }
 
     if(opcion==1){
@@ -87,7 +91,15 @@ function seleccionarConsola(opcion){
         pesoConsola=consolas.pesos[2];
         fotoConsola=consolas.fotos[2];
 
-    }else{
+    }else if(opcion==4){
+
+        nombreConsola=consolas.nombres[3];
+        precioConsola=consolas.precios[3];
+        pesoConsola=consolas.pesos[3];
+        fotoConsola=consolas.fotos[3];
+
+    }
+    else{
         nombreConsola=null;
         precioConsola=null;
         pesoConsola=null;
@@ -162,5 +174,36 @@ function limpiarCarrito(){
     linea2.classList.add("invisible")
     pildora.classList.add("invisible");
     pildora.classList.remove("visible");
+    convertidor.classList.add("invisible")
 
+}
+
+function convertiraPesos(precioDolares){
+    
+    const TRM=3932; //3932 pesos equivalen a 1 dolar
+    let precioPesos= precioDolares*TRM;
+
+    return precioPesos;
+
+
+
+}
+function convertidorcop(){
+
+    let cantidad=document.getElementById("cantidad").value;
+
+    let precioIndividual=document.getElementById("precioUnitarioCarrito");
+    precioIndividual.textContent=`Costo unitario: $${convertiraPesos(precioConsola)} COP`;
+
+    let costoCasillero=document.getElementById("costoCasillero");
+    costoCasillero.textContent=`Costo Casillero: $${convertiraPesos(calcularCostoCasillero(pesoConsola,cantidad))} COP`;
+
+    let costoImpuestos=document.getElementById("costoImpuestos");
+    costoImpuestos.textContent=`Costo venta(impuestos):$${convertiraPesos(calcularCostoImpuestos(precioConsola,cantidad))}COP`;
+
+    let costoTotal=document.getElementById("costoTotal");
+    costoTotal.textContent=`Costo Total: $${(convertiraPesos(calcularCostoCasillero(pesoConsola,cantidad))+(calcularCostoImpuestos(precioConsola,cantidad)))} COP`;
+
+
+    
 }
