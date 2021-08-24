@@ -6,16 +6,20 @@ let fotoConsola;
 let linea=document.getElementById("linea");
 let linea2=document.getElementById("linea2");
 let convertidor=document.getElementById("cop");
+let convertidor2=document.getElementById("usd");
 let boton=document.getElementById("boton");
 let botonLimpiar=document.getElementById("botonLimpiar");
 
-convertidor.addEventListener("click",convertidorcop)
+convertidor.addEventListener("click",convertidorcop);
+convertidor2.addEventListener("click",convertidorUSD);
 boton.addEventListener("click",capturarDatos);
 botonLimpiar.addEventListener("click",limpiarCarrito);
+
 
 linea.classList.add("invisible")
 linea2.classList.add("invisible")
 convertidor.classList.add("invisible")
+convertidor2.classList.add("invisible")
 
 function capturarDatos(){
 
@@ -59,6 +63,7 @@ function capturarDatos(){
     linea.classList.remove("invisible")
     linea2.classList.remove("invisible")
     convertidor.classList.remove("invisible")
+    console.log("click")
 }
 
 function seleccionarConsola(opcion){
@@ -175,6 +180,7 @@ function limpiarCarrito(){
     pildora.classList.add("invisible");
     pildora.classList.remove("visible");
     convertidor.classList.add("invisible")
+    convertidor2.classList.add("invisible")
 
 }
 
@@ -203,7 +209,34 @@ function convertidorcop(){
 
     let costoTotal=document.getElementById("costoTotal");
     costoTotal.textContent=`Costo Total: $${(convertiraPesos(calcularCostoCasillero(pesoConsola,cantidad))+(calcularCostoImpuestos(precioConsola,cantidad)))} COP`;
-
+    convertidor.classList.add("invisible");
+    convertidor2.classList.remove("invisible")
+    convertidor2.classList.add("visible");
 
     
+}
+function convertidorUSD(){
+
+    let cantidad=document.getElementById("cantidad").value;
+
+    let precioIndividual=document.getElementById("precioUnitarioCarrito");
+    precioIndividual.textContent=`Costo unitario: $${(precioConsola)} USD`;
+
+    let costoCasillero=document.getElementById("costoCasillero");
+    costoCasillero.textContent=`Costo Casillero: $${(calcularCostoCasillero(pesoConsola,cantidad))} UDS`;
+
+    let costoImpuestos=document.getElementById("costoImpuestos");
+    costoImpuestos.textContent=`Costo venta(impuestos):$${(calcularCostoImpuestos(precioConsola,cantidad))}UDS`;
+
+    let costoTotal=document.getElementById("costoTotal");
+    costoTotal.textContent=`Costo Total: $${((calcularCostoCasillero(pesoConsola,cantidad))+(calcularCostoImpuestos(precioConsola,cantidad)))} USD`;
+
+    convertidor.classList.remove("invisible")
+    convertidor.classList.add("visible");
+    convertidor2.classList.remove("visible")
+    convertidor2.classList.add("invisible");
+
+    
+
+
 }
