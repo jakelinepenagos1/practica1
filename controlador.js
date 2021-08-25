@@ -25,7 +25,7 @@ function capturarDatos(){
 
 
     let consolaElegida=document.getElementById("productos").value;
-    seleccionarConsola(consolaElegida);
+    seleccionarProducto(consolaElegida);
 
     let cantidad=document.getElementById("cantidad").value;
     
@@ -66,42 +66,135 @@ function capturarDatos(){
     console.log("click")
 }
 
-function seleccionarConsola(opcion){
+function seleccionarProducto(opcion){
 
-    let consolas={
-        nombres:Array("Phone 12","Nintendo Switch","XBOX Serie X","PlayStation5" ),
-        precios:Array(699,409,700,750),
-        pesos:Array(162,4.75,13.1,14.2),
-        fotos:Array("img/phone.jpeg","img/nintendo.jpg","img/xbox.jpg","img/ps5.jpg"),
+    let productos={
+        nombres:Array("Phone 12","Nintendo Switch","XBOX Serie X","PlayStation5","AirPods generacion 1","AirPods generacion 2","samsung galaxy A10","HUAWEI P40","MAC (computador de mesa)","MAC (portatil)","ipad","pencil apple generacion 2","Tablet HUAWEI","Tablet SAMSUNG","Watch APPLE","XIAOME" ),
+        precios:Array(699,409,700,750,35,159,200,1120,780,470,699,409,700,750,35,159),
+        pesos:Array(162,4.75,13.1,14.2,38,4,16.8,175,4.48,4.30,162,4.75,13.1,14.2,38,4.48 ),
+        fotos:Array("img/phone.jpeg","img/nintendo.jpg","img/xbox.jpg","img/ps5.jpg","img/airpods.jpg","img/airpods2.jpg","img/galaxy a10.jpg","img/huawei p40.jpg","img/mac.jpg","img/mac2.jpg","img/pad.jpg","img/pencil apple g2.jpg","img/tablet huaweit10.jpg","img/tablet samsung.jpg","img/watch.jpg","img/xiaomi.jpg"),
     }
 
     if(opcion==1){
 
-        nombreConsola=consolas.nombres[0];
-        precioConsola=consolas.precios[0];
-        pesoConsola=consolas.pesos[0];
-        fotoConsola=consolas.fotos[0];
+        nombreConsola=productos.nombres[0];
+        precioConsola=productos.precios[0];
+        pesoConsola=productos.pesos[0];
+        fotoConsola=productos.fotos[0];
 
     }else if(opcion==2){
 
-        nombreConsola=consolas.nombres[1];
-        precioConsola=consolas.precios[1];
-        pesoConsola=consolas.pesos[1];
-        fotoConsola=consolas.fotos[1];
+        nombreConsola=productos.nombres[1];
+        precioConsola=productos.precios[1];
+        pesoConsola=productos.pesos[1];
+        fotoConsola=productos.fotos[1];
 
     }else if(opcion==3){
 
-        nombreConsola=consolas.nombres[2];
-        precioConsola=consolas.precios[2];
-        pesoConsola=consolas.pesos[2];
-        fotoConsola=consolas.fotos[2];
+        nombreConsola=productos.nombres[2];
+        precioConsola=productos.precios[2];
+        pesoConsola=productos.pesos[2];
+        fotoConsola=productos.fotos[2];
 
     }else if(opcion==4){
 
-        nombreConsola=consolas.nombres[3];
-        precioConsola=consolas.precios[3];
-        pesoConsola=consolas.pesos[3];
-        fotoConsola=consolas.fotos[3];
+        nombreConsola=productos.nombres[3];
+        precioConsola=productos.precios[3];
+        pesoConsola=productos.pesos[3];
+        fotoConsola=productos.fotos[3];
+
+    }
+    else if(opcion==5){
+
+        nombreConsola=productos.nombres[4];
+        precioConsola=productos.precios[4];
+        pesoConsola=productos.pesos[4];
+        fotoConsola=productos.fotos[4];
+
+    }
+    else if(opcion==6){
+
+        nombreConsola=productos.nombres[5];
+        precioConsola=productos.precios[5];
+        pesoConsola=productos.pesos[5];
+        fotoConsola=productos.fotos[5];
+
+    }
+    else if(opcion==7){
+
+        nombreConsola=productos.nombres[6];
+        precioConsola=productos.precios[6];
+        pesoConsola=productos.pesos[6];
+        fotoConsola=productos.fotos[6];
+
+    }
+    else if(opcion==8){
+
+        nombreConsola=productos.nombres[7];
+        precioConsola=productos.precios[7];
+        pesoConsola=productos.pesos[7];
+        fotoConsola=productos.fotos[7];
+
+    }
+    else if(opcion==9){
+
+        nombreConsola=productos.nombres[8];
+        precioConsola=productos.precios[8];
+        pesoConsola=productos.pesos[8];
+        fotoConsola=productos.fotos[8];
+
+    }
+    else if(opcion==10){
+
+        nombreConsola=productos.nombres[9];
+        precioConsola=productos.precios[9];
+        pesoConsola=productos.pesos[9];
+        fotoConsola=productos.fotos[9];
+
+    }
+    else if(opcion==11){
+
+        nombreConsola=productos.nombres[10];
+        precioConsola=productos.precios[10];
+        pesoConsola=productos.pesos[10];
+        fotoConsola=productos.fotos[10];
+
+    }
+    else if(opcion==12){
+
+        nombreConsola=productos.nombres[11];
+        precioConsola=productos.precios[11];
+        pesoConsola=productos.pesos[11];
+        fotoConsola=productos.fotos[11];
+
+    }
+    else if(opcion==13){
+
+        nombreConsola=productos.nombres[12];
+        precioConsola=productos.precios[12];
+        pesoConsola=productos.pesos[12];
+        fotoConsola=productos.fotos[12];
+
+    }else if(opcion==14){
+
+        nombreConsola=productos.nombres[13];
+        precioConsola=productos.precios[13];
+        pesoConsola=productos.pesos[13];
+        fotoConsola=productos.fotos[13];
+
+    }else if(opcion==15){
+
+        nombreConsola=productos.nombres[14];
+        precioConsola=productos.precios[14];
+        pesoConsola=productos.pesos[14];
+        fotoConsola=productos.fotos[14];
+
+    }else if(opcion==16){
+
+        nombreConsola=productos.nombres[15];
+        precioConsola=productos.precios[15];
+        pesoConsola=productos.pesos[15];
+        fotoConsola=productos.fotos[15];
 
     }
     else{
@@ -111,9 +204,10 @@ function seleccionarConsola(opcion){
         fotoConsola=null;
 
     }
-
-
 }
+
+
+
 
 function calcularCostoCasillero(pesoConsola,cantidad){
 
@@ -133,7 +227,6 @@ function calcularCostoCasillero(pesoConsola,cantidad){
     
     return costoCasillero;
 }
-
 function calcularCostoImpuestos(costoConsola,cantidad){
 
     const IMPUESTO_PAIS=114;
@@ -145,8 +238,6 @@ function calcularCostoImpuestos(costoConsola,cantidad){
     return costoTotal;
 
 } 
-
-
 function limpiarCarrito(){
 
     console.log("hiciste clic en limpiar");
