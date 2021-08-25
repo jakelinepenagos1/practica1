@@ -72,7 +72,7 @@ function seleccionarProducto(opcion){
         nombres:Array("Phone 12","Nintendo Switch","XBOX Serie X","PlayStation5","AirPods generacion 1","AirPods generacion 2","samsung galaxy A10","HUAWEI P40","MAC (computador de mesa)","MAC (portatil)","ipad","pencil apple generacion 2","Tablet HUAWEI","Tablet SAMSUNG","Watch APPLE","XIAOME" ),
         precios:Array(699,409,700,750,35,159,200,1120,780,470,699,409,700,750,35,159),
         pesos:Array(162,4.75,13.1,14.2,38,4,16.8,175,4.48,4.30,162,4.75,13.1,14.2,38,4.48 ),
-        fotos:Array("img/phone.jpeg","img/nintendo.jpg","img/xbox.jpg","img/ps5.jpg","img/airpods.jpg","img/airpods2.jpg","img/galaxy a10.jpg","img/huawei p40.jpg","img/mac.jpg","img/mac2.jpg","img/pad.jpg","img/pencil apple g2.jpg","img/tablet huaweit10.jpg","img/tablet samsung.jpg","img/watch.jpg","img/xiaomi.jpg"),
+        fotos:Array("img/phone.jpeg","img/nintendo.jpg","img/xbox.jpg","img/ps5.jpg","img/airpods.jpg","img/airpods2.jpg","img/galaxy a10.jpg","img/huawei p40.jpg","img/mac.jpg","img/mac2.jpg","img/pad.jpg","img/pencil apple g2.jpg","img/tablet huaweit10.jpg","img/tablet samsung.jpg","img/watch.png","img/xiaomi.jpg"),
     }
 
     if(opcion==1){
