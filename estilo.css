@@ -1,8 +1,10 @@
+
 body{
    
     text-align:center;
     font-size: small;
     font-style: italic;
+    background-color: black;
 
 }
 
@@ -11,3 +13,4 @@ body{
     width: 2000px;
     height: 560px;
 }
+
