@@ -14,3 +14,34 @@ body{
     height: 560px;
 }
 
+footer{
+    background-color: rgb(17, 17, 65);
+    color: cornsilk;
+}
+header{
+
+    background-color: black;
+    color: cornsilk;
+}
+.container{
+    background: black;
+    text-decoration: cornsilk;
+    color: cornsilk;
+}
+.modal-header{
+    background: black;
+    color: cornsilk;
+
+}
+.modal-footer{
+    background: black;
+    color: cornsilk;
+
+}
+.modal-body{
+
+    background: black;
+    color: cornsilk;
+
+
+}
